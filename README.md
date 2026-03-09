@@ -34,7 +34,7 @@ Vasanthakumar Padmanaban. From Farm to Fork: Optimizing Cold-Chain Logistics thr
 Getting Started:
 - Clone the Repo: git clone https://github.com/vasanthpresearch/agentic-ai-cold-chain-optimization.git
 - Install Dependencies: pip install -r requirements.txt
-- Run Simulation: Execute main_agent.py to view the predictive logic and rerouting triggers.
+- Run Simulation: Execute main.py to view the predictive logic and rerouting triggers.
 
 Collaboration & Citations:
 
