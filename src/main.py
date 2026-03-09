@@ -5,29 +5,43 @@ from agent_logic import ColdChainAgent
 import matplotlib.pyplot as plt
 import os
 
+
 def run_pipeline():
-    # 1. Ensure Data exists
-    if not os.path.exists('dataset/sample_iot_stream.csv'):
-        os.makedirs('dataset', exist_ok=True)
+    # # Define paths relative to the root (one level up from /src)
+    # DATASET_DIR = os.path.join('..', 'dataset')
+    # RESULTS_DIR = os.path.join('..', 'results')
+    # PLOTS_DIR = os.path.join(RESULTS_DIR, 'output_plots')
+    #
+    # weights_path = os.path.join(RESULTS_DIR, 'model_weights.weights.h5')
+    # csv_path = os.path.join(DATASET_DIR, 'sample_iot_stream.csv')
+    #
+    # # 1. Ensure Folders Exist in the Root
+    # os.makedirs(DATASET_DIR, exist_ok=True)
+    # os.makedirs(RESULTS_DIR, exist_ok=True)
+    # os.makedirs(PLOTS_DIR, exist_ok=True)
+
+    # 1 Ensure Data exists
+    if not os.path.exists('../dataset/sample_iot_stream.csv'):
+        os.makedirs('../dataset', exist_ok=True)
         generate_cold_chain_data()
 
     # 2. Preprocess
     print("Preprocessing IoT Streams...")
-    data, scaler = preprocess_iot_data('dataset/sample_iot_stream.csv')
+    data, scaler = preprocess_iot_data('../dataset/sample_iot_stream.csv')
     X, y = create_sequences(data)
 
     # 3. Build/Initialize Model
     print("Initializing LSTM Predictive Engine...")
     model = build_lstm_model(input_shape=(X.shape[1], X.shape[2]))
 
-    weights_path = 'results/model_weights.weights.h5'
+    weights_path = '../results/model_weights.weights.h5'
 
     # Explicitly build the model so weights are created in memory
     # None represents the 'batch size', which can vary
     model.build(input_shape=(None, X.shape[1], X.shape[2]))
 
     # Ensure the results directory exists
-    os.makedirs('results', exist_ok=True)
+    os.makedirs('../results', exist_ok=True)
 
     if os.path.exists(weights_path) and os.path.getsize(weights_path) > 0:
         print("Loading pre-trained weights from results/ folder...")
@@ -56,13 +70,14 @@ def run_pipeline():
     print("-" * 30)
 
     # 6. Save the trained intelligence
-    os.makedirs('results', exist_ok=True)
-    model.save_weights('results/model_weights.weights.h5')
+    os.makedirs('../results', exist_ok=True)
+    #model.save_weights('../results/model_weights.weights.h5')
+    model.save_weights(weights_path)
     print("Model weights saved to results/model_weights.weights.h5")
     print(f"Weights saved. File size: {os.path.getsize(weights_path)} bytes")
 
     # 7. Generate and Save the Visual Proof
-    os.makedirs('results/output_plots', exist_ok=True)
+    os.makedirs('../results/output_plots', exist_ok=True)
 
     plt.figure(figsize=(10, 6))
     plt.plot(data[-50:, 0], label='Actual Temp (Historical)')
@@ -72,7 +87,7 @@ def run_pipeline():
     plt.ylabel('Temperature (°C)')
     plt.legend()
 
-    plt.savefig('results/output_plots/thermal_excursion_forecast.png')
+    plt.savefig('../results/output_plots/thermal_excursion_forecast.png')
     print("Research plot saved to results/output_plots/thermal_excursion_forecast.png")
 
 if __name__ == "__main__":

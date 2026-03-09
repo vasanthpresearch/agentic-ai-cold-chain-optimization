@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 import datetime
 
-def generate_cold_chain_data(hours=24, interval_min=5):
+
+def generate_cold_chain_data(hours=24, interval_min=5, file_path='../dataset/sample_iot_stream.csv'):
     """Generates synthetic IoT sensor data for a refrigerated container."""
     intervals = (hours * 60) // interval_min
     start_time = datetime.datetime.now()
@@ -28,7 +29,8 @@ def generate_cold_chain_data(hours=24, interval_min=5):
         data.append([current_time, temp, hum, co2])
     
     df = pd.DataFrame(data, columns=['Timestamp', 'Temperature', 'Humidity', 'CO2'])
-    df.to_csv('dataset/sample_iot_stream.csv', index=False)
+    #df.to_csv('dataset/sample_iot_stream.csv', index=False)
+    df.to_csv(file_path, index=False)
     print("Synthetic Cold-Chain Dataset Generated: dataset/sample_iot_stream.csv")
 
 if __name__ == "__main__":
