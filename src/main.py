@@ -11,12 +11,12 @@ def run_pipeline():
         generate_cold_chain_data()
 
     # 2. Preprocess
-    print("🔄 Preprocessing IoT Streams...")
+    print("Preprocessing IoT Streams...")
     data, scaler = preprocess_iot_data('dataset/sample_iot_stream.csv')
     X, y = create_sequences(data)
 
     # 3. Build/Initialize Model
-    print("🧠 Initializing LSTM Predictive Engine...")
+    print("Initializing LSTM Predictive Engine...")
     model = build_lstm_model(input_shape=(X.shape[1], X.shape[2]))
     
     # 4. Predict (Simulating a real-time check)
