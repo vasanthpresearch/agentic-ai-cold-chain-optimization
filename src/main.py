@@ -7,18 +7,6 @@ import os
 
 
 def run_pipeline():
-    # # Define paths relative to the root (one level up from /src)
-    # DATASET_DIR = os.path.join('..', 'dataset')
-    # RESULTS_DIR = os.path.join('..', 'results')
-    # PLOTS_DIR = os.path.join(RESULTS_DIR, 'output_plots')
-    #
-    # weights_path = os.path.join(RESULTS_DIR, 'model_weights.weights.h5')
-    # csv_path = os.path.join(DATASET_DIR, 'sample_iot_stream.csv')
-    #
-    # # 1. Ensure Folders Exist in the Root
-    # os.makedirs(DATASET_DIR, exist_ok=True)
-    # os.makedirs(RESULTS_DIR, exist_ok=True)
-    # os.makedirs(PLOTS_DIR, exist_ok=True)
 
     # 1 Ensure Data exists
     if not os.path.exists('../dataset/sample_iot_stream.csv'):
@@ -59,6 +47,9 @@ def run_pipeline():
     
     # Inverse scale to get actual Celsius
     predicted_temp = (predicted_scaled[0][0] * (data[:,0].max() - data[:,0].min())) + data[:,0].min()
+
+    # FOR TESTING: Inject a "Heat Wave" (e.g., 8.5°C)
+    # predicted_temp = 8.5  # Uncomment this line when you want to test the reroute scenario
 
     # 5. Agentic Decision
     agent = ColdChainAgent()

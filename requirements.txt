@@ -24,3 +24,8 @@ seaborn>=0.12.0
 
 # --- Environment Management ---
 python-dotenv>=1.0.0
+
+# Notebook tooling (for executing / editing notebooks in the project venv)
+nbformat>=5.10.0
+nbconvert>=7.0.0
+ipykernel>=6.0.0
