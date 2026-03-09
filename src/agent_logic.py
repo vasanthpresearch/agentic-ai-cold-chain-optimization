@@ -21,6 +21,6 @@ class ColdChainAgent:
         degradation_rate = self.calculate_kinetic_degradation(predicted_temp)
         
         if predicted_temp > self.temp_threshold or degradation_rate > 1.5:
-            return "🚨 ACTION REQUIRED: Reroute to nearest MFC (Micro-Fulfillment Center)"
+            return "ACTION REQUIRED: Reroute to nearest MFC (Micro-Fulfillment Center)"
         else:
-            return "✅ STATUS: Optimal. Continue to original destination."
+            return "STATUS: Optimal. Continue to original destination."
