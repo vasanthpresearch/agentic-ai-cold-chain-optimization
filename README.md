@@ -12,8 +12,9 @@ Key Performance Benchmarks:
 - Sustainability Impact: Significant reduction in carbon footprint via optimized cooling and waste mitigation.
 
 Core Methodology:
+
 The framework operates on a four-tier architecture:
-- Sensing Layer: Continuous data ingestion from Ambient IoT sensors (Temperature, Humidity, CO2).
+- Sensing Layer: Continuous data ingestion from Ambient IoT sensors (Temperature, Humidity, $CO_2$).
 - Perception Layer: An LSTM neural network analyzes temporal patterns to forecast internal cargo temperatures 4 hours into the future.
 - Reasoning Layer (Kinetic Logic): The system applies the Arrhenius Equation to calculate the real-time chemical degradation of the cargo, moving beyond static temperature thresholds.
 - Action Layer (Agency): If a breach is predicted, the AI autonomously initiates Dynamic FEFO (First-Expired, First-Out) rerouting, interacting with logistics ERPs to secure the inventory at the nearest fulfillment center.
