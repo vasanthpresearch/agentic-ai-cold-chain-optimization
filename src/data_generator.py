@@ -29,7 +29,7 @@ def generate_cold_chain_data(hours=24, interval_min=5):
     
     df = pd.DataFrame(data, columns=['Timestamp', 'Temperature', 'Humidity', 'CO2'])
     df.to_csv('dataset/sample_iot_stream.csv', index=False)
-    print("✅ Synthetic Cold-Chain Dataset Generated: dataset/sample_iot_stream.csv")
+    print("Synthetic Cold-Chain Dataset Generated: dataset/sample_iot_stream.csv")
 
 if __name__ == "__main__":
     generate_cold_chain_data()
