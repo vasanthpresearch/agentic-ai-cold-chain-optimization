@@ -1,6 +1,10 @@
 # agentic-ai-cold-chain-optimization
 Agentic AI for Cold-Chain Sustainability: LSTM-Based Predictive Logistics
 
+
+<img width="1935" height="934" alt="image" src="https://github.com/user-attachments/assets/169a2e0a-34cc-4971-a66a-e1d71067554d" />
+
+
 Executive Summary:
 
 This repository implements an Agentic AI framework designed to revolutionize cold-chain logistics by shifting from reactive monitoring to autonomous intervention. By integrating Ambient IoT data with LSTM (Long Short-Term Memory) neural networks, the system predicts thermal breaches and executes rerouting logic to mitigate perishable goods spoilage.
