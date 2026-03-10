@@ -9,6 +9,22 @@ Executive Summary:
 
 This repository implements an Agentic AI framework designed to revolutionize cold-chain logistics by shifting from reactive monitoring to autonomous intervention. By integrating Ambient IoT data with LSTM (Long Short-Term Memory) neural networks, the system predicts thermal breaches and executes rerouting logic to mitigate perishable goods spoilage.
 
+![Animation showing Agentic AI rerouting a truck based on LSTM temperature prediction](assets/agentic-ai-reroute-demo.gif)
+
+How It Works: The Sense-Think-Act Cycle
+
+The simulation above demonstrates the framework's ability to intervene before biological degradation becomes irreversible:
+
+1. Sense: Continuous ingestion of high-frequency telemetry (Temp, RH, $C_2H_4$) via LoRaWAN/5G edge nodes.
+
+2. Think: An LSTM Neural Network forecasts the internal cargo temperature with a 3.5-hour lead time. Simultaneously, the system calculates the Kinetic Risk using the Arrhenius Equation:
+
+     $$k = Ae^{-\frac{E_a}{RT}}$$
+
+3. Act: If a breach is predicted, the Agent autonomously identifies the nearest Micro-Fulfillment Center (MFC) and updates the GPS destination via logistics APIs—bypassing manual decision latencies.
+
+
+
 Key Performance Benchmarks:
 - 66% Reduction in post-harvest spoilage compared to traditional FIFO (First-In, First-Out) models.
 - 3.5-Hour Predictive Lead Time for thermal excursion warnings.
